@@ -6,7 +6,7 @@ using System.Windows.Forms;
 namespace Be.HexEditor
 {
     public class FormGoTo : Core.FormEx
-	{
+    {
         #region Fields
         private Container       Components = null;
         private Label           CaptionText;
@@ -22,24 +22,24 @@ namespace Be.HexEditor
 
         #region Windows Form Designer generated code
         public FormGoTo()
-		{
-			InitializeComponent();
+        {
+            InitializeComponent();
         }
 
-		protected override void Dispose(bool disposing)
-		{
-			if (disposing)
-			{
-				if (Components != null)
-				{
-					Components.Dispose();
-				}
-			}
-			base.Dispose(disposing);
-		}
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                if (Components != null)
+                {
+                    Components.Dispose();
+                }
+            }
+            base.Dispose(disposing);
+        }
 
-		private void InitializeComponent()
-		{
+        private void InitializeComponent()
+        {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormGoTo));
             this.ButtonsContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.ButtonCancel = new System.Windows.Forms.Button();
@@ -143,29 +143,29 @@ namespace Be.HexEditor
             this.ResumeLayout(false);
             this.PerformLayout();
 
-		}
+        }
         #endregion
 
         #region Routines
         public void SetDefaultValue(long index)
-		{
+        {
             IndexSelectValue.Value = index;
-		}
+        }
 
-		public void SetMaxByteIndex(long index)
-		{
+        public void SetMaxByteIndex(long index)
+        {
             IndexSelectValue.Maximum = index;
-		}
+        }
 
-		public long GetByteIndex() => Convert.ToInt64(IndexSelectValue.Value);
+        public long GetByteIndex() => Convert.ToInt64(IndexSelectValue.Value);
         #endregion
 
         #region Handlers
         private void FormGoToActivated(object sender, EventArgs e)
-		{
-			IndexSelectValue.Focus();
-			IndexSelectValue.Select(0, IndexSelectValue.Value.ToString().Length);
-		}
+        {
+            IndexSelectValue.Focus();
+            IndexSelectValue.Select(0, IndexSelectValue.Value.ToString().Length);
+        }
 
         private void FormatCheckedChanged(object sender, EventArgs e)
         {

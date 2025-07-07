@@ -868,8 +868,8 @@ namespace Be.HexEditor
         private Core.ToolStripMenuItemEx ToolsEditPasteHex;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private Core.ToolStripMenuItemEx MenuEditSelectAll;
-		private System.Windows.Forms.ToolStripStatusLabel StatusBitsOfByte;
-		private System.Windows.Forms.ToolStripComboBox ToolsEncodingSelect;
+        private System.Windows.Forms.ToolStripStatusLabel StatusBitsOfByte;
+        private System.Windows.Forms.ToolStripComboBox ToolsEncodingSelect;
         private System.Windows.Forms.ToolStripComboBox ToolsBytesPerLineSelect;
         private System.Windows.Forms.ToolStripButton ToolsEditFind;
         private System.Windows.Forms.ToolStripButton ToolsEditFindNext;

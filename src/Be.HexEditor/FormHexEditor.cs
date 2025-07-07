@@ -424,26 +424,26 @@ namespace Be.HexEditor
 
         #region EditForms
         private FormFind ShowFind(bool next = false)
-		{
-			if (_FindsForm == null || _FindsForm.IsDisposed)
-			{
-				_FindsForm             = new FormFind();
-				_FindsForm.HexBox      = HexEditor;
-				_FindsForm.FindOptions = _FindsOptions;
+        {
+            if (_FindsForm == null || _FindsForm.IsDisposed)
+            {
+                _FindsForm             = new FormFind();
+                _FindsForm.HexBox      = HexEditor;
+                _FindsForm.FindOptions = _FindsOptions;
 
                 if (!next)
                 {
                     _FindsForm.Show(this);
                 }    
-			}
-			else
-			{
+            }
+            else
+            {
                 _FindsForm.Show(this);
                 _FindsForm.Focus();
-			}
+            }
 
-			return _FindsForm;
-		}
+            return _FindsForm;
+        }
         #endregion
 
         #region Handlers
@@ -527,11 +527,11 @@ namespace Be.HexEditor
             }
         }
 
-		private void EncodingSelectSelectedIndexChanged(object sender, EventArgs e)
-		{
-			HexEditor.ByteCharConverter = ToolsEncodingSelect.SelectedItem as IByteCharConverter;
+        private void EncodingSelectSelectedIndexChanged(object sender, EventArgs e)
+        {
+            HexEditor.ByteCharConverter = ToolsEncodingSelect.SelectedItem as IByteCharConverter;
             HexEditor.Focus();
-		}
+        }
 
         private void BytesPerLineSelectSelectedIndexChanged(object sender, EventArgs e)
         {

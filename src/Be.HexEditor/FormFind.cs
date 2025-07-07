@@ -8,7 +8,7 @@ using Be.Windows.Forms;
 namespace Be.HexEditor
 {
     public class FormFind : Core.FormEx
-	{
+    {
         #region Fields
         private IContainer      components;
         private FlowLayoutPanel CaptionContainer;
@@ -24,32 +24,32 @@ namespace Be.HexEditor
         private Label           FindInfoPercent;
         private Button          ButtonOK;
         private Button          ButtonCancel;
-		private Timer           _TimerInfoPercent;
-		private Timer           _TimerInfo;
+        private Timer           _TimerInfoPercent;
+        private Timer           _TimerInfo;
         private FindOptions     _FindOptions;
         private bool            _Finding;
         #endregion
 
         #region Windows Form Designer generated code
         public FormFind()
-		{
-			InitializeComponent();
-		}
+        {
+            InitializeComponent();
+        }
 
-		protected override void Dispose(bool disposing)
-		{
-			if (disposing)
-			{
-				if (components != null)
-				{
-					components.Dispose();
-				}
-			}
-			base.Dispose(disposing);
-		}
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                if (components != null)
+                {
+                    components.Dispose();
+                }
+            }
+            base.Dispose(disposing);
+        }
 
-		private void InitializeComponent()
-		{
+        private void InitializeComponent()
+        {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormFind));
             this.FindTextValue = new System.Windows.Forms.TextBox();
@@ -203,43 +203,43 @@ namespace Be.HexEditor
             this.ResumeLayout(false);
             this.PerformLayout();
 
-		}
+        }
         #endregion
 
         #region Properties
         public FindOptions FindOptions
-		{
-			get => _FindOptions;
+        {
+            get => _FindOptions;
 
-			set
-			{
-				_FindOptions = value;
-				Reinitialize();
-			}
-		}
+            set
+            {
+                _FindOptions = value;
+                Reinitialize();
+            }
+        }
 
-		public HexBox HexBox { get; set; }
+        public HexBox HexBox { get; set; }
         #endregion
 
         #region Routines
         private void Reinitialize()
-		{
-			FindTextSelect.Checked    = _FindOptions.Type == FindType.Text;
-			FindTextValue.Text        = _FindOptions.Text;
-			FindTextMatchCase.Checked = _FindOptions.MatchCase;
+        {
+            FindTextSelect.Checked    = _FindOptions.Type == FindType.Text;
+            FindTextValue.Text        = _FindOptions.Text;
+            FindTextMatchCase.Checked = _FindOptions.MatchCase;
 
-			FindHexSelect.Checked = _FindOptions.Type == FindType.Hex;
+            FindHexSelect.Checked = _FindOptions.Type == FindType.Hex;
 
             if (FindHexValue.ByteProvider != null)
             {
                 FindHexValue.ByteProvider.Changed -= new EventHandler(FindHexValueByteProviderChanged);
             }
 
-			var hex = this._FindOptions.Hex != null ? _FindOptions.Hex : new byte[0];
+            var hex = this._FindOptions.Hex != null ? _FindOptions.Hex : new byte[0];
 
-			FindHexValue.ByteProvider          = new DynamicByteProvider(hex);
-			FindHexValue.ByteProvider.Changed += new EventHandler(FindHexValueByteProviderChanged);
-		}
+            FindHexValue.ByteProvider          = new DynamicByteProvider(hex);
+            FindHexValue.ByteProvider.Changed += new EventHandler(FindHexValueByteProviderChanged);
+        }
 
         private void ValidateFind()
         {
@@ -318,22 +318,22 @@ namespace Be.HexEditor
         }
 
         private void FindSwitchCheckedChanged(object sender, EventArgs e)
-		{
-			FindTextValue.Enabled = FindTextSelect.Checked;
-			FindHexValue.Enabled  = !FindTextValue.Enabled;
+        {
+            FindTextValue.Enabled = FindTextSelect.Checked;
+            FindHexValue.Enabled  = !FindTextValue.Enabled;
 
-			if (FindTextValue.Enabled)
+            if (FindTextValue.Enabled)
             {
                 FindTextValue.Focus();
             }
-			else
+            else
             {
                 FindHexValue.Focus();
-            }	
-		}
+            }    
+        }
 
-		private void FormFindActivated(object sender, EventArgs e)
-		{
+        private void FormFindActivated(object sender, EventArgs e)
+        {
             if (FindTextSelect.Checked)
             {
                 FindTextValue.Focus();
@@ -342,24 +342,24 @@ namespace Be.HexEditor
             {
                 FindHexValue.Focus();
             }
-		}
+        }
 
-		private void ButtonOkClick(object sender, EventArgs e)
-		{
-			_FindOptions.MatchCase = FindTextMatchCase.Checked;
+        private void ButtonOkClick(object sender, EventArgs e)
+        {
+            _FindOptions.MatchCase = FindTextMatchCase.Checked;
 
-			var provider           = this.FindHexValue.ByteProvider as DynamicByteProvider;
-			_FindOptions.Hex       = provider.Bytes.ToArray();
-			_FindOptions.Text      = FindTextValue.Text;
-			_FindOptions.Type      = FindHexSelect.Checked ? FindType.Hex : FindType.Text;
-			_FindOptions.MatchCase = FindTextMatchCase.Checked;
-			_FindOptions.IsValid   = true;
+            var provider           = this.FindHexValue.ByteProvider as DynamicByteProvider;
+            _FindOptions.Hex       = provider.Bytes.ToArray();
+            _FindOptions.Text      = FindTextValue.Text;
+            _FindOptions.Type      = FindHexSelect.Checked ? FindType.Hex : FindType.Text;
+            _FindOptions.MatchCase = FindTextMatchCase.Checked;
+            _FindOptions.IsValid   = true;
 
-			FindNext();
-		}
+            FindNext();
+        }
 
-		private void ButtonCancelClick(object sender, EventArgs e)
-		{
+        private void ButtonCancelClick(object sender, EventArgs e)
+        {
             if (_Finding)
             {
                 this.HexBox.AbortFind();
@@ -368,16 +368,16 @@ namespace Be.HexEditor
             {
                 this.Close();
             }
-		}
+        }
 
-		private void FindTextValueChanged(object sender, EventArgs e)
-		{
-			ValidateFind();
-		}
+        private void FindTextValueChanged(object sender, EventArgs e)
+        {
+            ValidateFind();
+        }
 
-		private void TimerInfoTick(object sender, EventArgs e)
-		{
-			if (FindInfo.Text.Length == 15)
+        private void TimerInfoTick(object sender, EventArgs e)
+        {
+            if (FindInfo.Text.Length == 15)
             {
                 FindInfo.Text = "";
             }
@@ -385,18 +385,18 @@ namespace Be.HexEditor
             {
                 FindInfo.Text += ".";
             }
-		}
+        }
 
-		private void TimerInfoPercentTick(object sender, EventArgs e)
-		{
-			long   pos     = HexBox.CurrentFindingPosition;
-			long   length  = HexBox.ByteProvider.Length;
-			double percent = 100.0 * pos / length;
+        private void TimerInfoPercentTick(object sender, EventArgs e)
+        {
+            long   pos     = HexBox.CurrentFindingPosition;
+            long   length  = HexBox.ByteProvider.Length;
+            double percent = 100.0 * pos / length;
 
-			NumberFormatInfo nfi = new CultureInfo("en-US").NumberFormat;
+            NumberFormatInfo nfi = new CultureInfo("en-US").NumberFormat;
 
-			FindInfoPercent.Text = percent.ToString("0.00", nfi) + " %";
-		}
+            FindInfoPercent.Text = percent.ToString("0.00", nfi) + " %";
+        }
         #endregion
     }
 }

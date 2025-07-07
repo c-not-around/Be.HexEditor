@@ -1,0 +1,8 @@
+hex-back-color  : 255; 30; 30; 30  # background
+hex-header-color: 255;184;215;163  # header
+hex-offset-color: 255; 86;156;214  # address
+hex-ascii-color : 255; 78;201;176  # ascii
+hex-fore-color  : 255;220;220;220  # hex
+sel-back-color  : 255; 43;145;175  # selection-back
+sel-fore-color  : 255;255;255;255  # selection-fore
+sel-shadow-color:  30; 80;188;255  # shadow-selection

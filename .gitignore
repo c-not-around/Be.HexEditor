@@ -1,0 +1,5 @@
+src/.vs/*
+src/Be.HexEditor/bin
+src/Be.HexEditor/obj
+src/Be.Windows.Forms.HexBox/bin
+src/Be.Windows.Forms.HexBox/obj
